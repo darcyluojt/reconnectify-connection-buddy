@@ -8,6 +8,7 @@ import Footer from '@/components/Footer';
 import ConnectionCard from '@/components/ConnectionCard';
 import IcebreakerGenerator from '@/components/IcebreakerGenerator';
 import MeetupSuggestion from '@/components/MeetupSuggestion';
+import { Badge } from '@/components/ui/badge';
 
 const HeroSection = () => {
   const navigate = useNavigate();
