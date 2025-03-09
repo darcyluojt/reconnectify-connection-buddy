@@ -91,24 +91,24 @@ const FeaturesSection = () => {
             {
               icon: Users,
               title: 'Daily Reconnection Suggestions',
-              description: 'Get personalized suggestions of three people to reconnect with each day, based on how long it's been since your last interaction.'
+              description: "Get personalized suggestions of three people to reconnect with each day, based on how long it's been since your last interaction."
             },
             {
               icon: MessageCircle,
               title: 'AI-Powered Icebreakers',
-              description: 'Never struggle with what to say. Our AI generates personalized conversation starters based on your shared interests and recent activities.'
+              description: "Never struggle with what to say. Our AI generates personalized conversation starters based on your shared interests and recent activities."
             },
             {
               icon: MapPin,
               title: 'Meetup Recommendations',
-              description: 'Turn digital connections into real-life meetups with location-based suggestions for activities and venues you'll both enjoy.'
+              description: "Turn digital connections into real-life meetups with location-based suggestions for activities and venues you'll both enjoy."
             }
           ].map((feature, index) => (
             <div 
               key={index} 
               className="bg-white rounded-xl p-6 shadow-subtle border border-border transition-all duration-300 hover:shadow-elevated hover:translate-y-[-5px]"
             >
-              <div className="w-12 h-12 rounded-lg bg-ohhey-blue/10 flex-center mb-4">
+              <div className="w-12 h-12 rounded-lg bg-ohhey-blue/10 flex items-center justify-center mb-4">
                 <feature.icon size={24} className="text-ohhey-blue" />
               </div>
               <h3 className="text-xl font-medium mb-2">{feature.title}</h3>
