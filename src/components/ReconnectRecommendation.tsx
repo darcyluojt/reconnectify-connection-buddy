@@ -47,20 +47,21 @@ const ReconnectRecommendation = ({
   return (
     <Card 
       className={cn(
-        'overflow-hidden transition-all duration-300 h-[206px]',
+        'overflow-hidden transition-all duration-300 h-[220px]',
         expanded ? 'h-auto shadow-elevated' : 'hover:shadow-subtle',
         className
       )}
     >
-      <CardContent className="p-4 flex gap-4">
-        <ProfileImage imageUrl={imageUrl} name={name} />
+      <CardContent className="p-4 flex-col gap-2 mb-0">
+        <div className="flex gap-2">
+          <ProfileImage imageUrl={imageUrl} name={name} />
         
-        <div className="flex-1 overflow-hidden">
-          <div className="flex flex-col">
-            <h3 className="text-lg font-semibold">{name}</h3>
-            <span className="text-sm text-muted-foreground">@{username}</span>
-          </div>
-          
+            <div className="flex flex-col">
+              <h3 className="text-lg font-semibold">{name}</h3>
+            </div>
+            </div>
+            <div className="flex-1 overflow-hidden">
+        
           <div className="flex items-center gap-1 mt-1 text-xs text-muted-foreground">
             <Clock size={12} />
             <span>Last contact: {lastContactDate}</span>
@@ -92,7 +93,7 @@ const ReconnectRecommendation = ({
           variant={expanded ? "default" : "ghost"} 
           size="sm" 
           onClick={expanded ? () => setExpanded(false) : handleViewDetails}
-          className={cn("text-sm", expanded && "bg-ohhey-blue hover:bg-ohhey-blue/90")}
+          className={cn("text-sm", expanded && "bg-ohhey-blue hover:bg-ohhey-blue/90 mb-0")}
         >
           {expanded ? 'Close' : 'View Details'}
         </Button>

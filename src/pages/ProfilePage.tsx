@@ -276,7 +276,7 @@ const ProfilePage = () => {
         {/* Recent Posts Carousel */}
         <Card className="overflow-hidden">
           <CardHeader className="bg-gradient-to-r from-ohhey-blue/10 to-transparent border-b">
-            <CardTitle className="text-lg">Recent Activity</CardTitle>
+            <CardTitle className="text-lg">Common activities</CardTitle>
           </CardHeader>
           <CardContent className="p-0">
             <div className="relative">

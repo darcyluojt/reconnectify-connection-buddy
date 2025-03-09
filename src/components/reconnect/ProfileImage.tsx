@@ -9,7 +9,7 @@ interface ProfileImageProps {
 
 const ProfileImage = ({ imageUrl, name, className = "w-12 h-12" }: ProfileImageProps) => {
   return (
-    <div className={`${className} rounded-full overflow-hidden border-2 border-white shadow-subtle flex-shrink-0`}>
+    <div className={`${className} rounded-full overflow-hidden border-2 border-white shadow-subtle flex-shrink-0 items-center justify-center`}>
       {imageUrl ? (
         <img 
           src={imageUrl} 

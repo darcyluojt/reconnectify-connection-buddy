@@ -98,7 +98,7 @@ const Connections = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
           {recommendations.map((recommendation) => (
             <ReconnectRecommendation
               key={recommendation.id}

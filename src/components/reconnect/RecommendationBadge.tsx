@@ -31,7 +31,7 @@ const RecommendationBadge = ({ type, className }: RecommendationBadgeProps) => {
   return (
     <Badge variant="outline" className={cn("mt-2 font-normal text-xs flex items-center gap-1.5 w-fit", bgColor, textColor, className)}>
       <RecommendationIcon size={10} />
-      <span>Reconnection suggestion</span>
+      <span>⭐⭐⭐</span>
     </Badge>
   );
 };
