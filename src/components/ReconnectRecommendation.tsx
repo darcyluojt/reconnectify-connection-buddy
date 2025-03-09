@@ -1,5 +1,6 @@
 
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { User, MessageCircle, Clock, Zap, Send, RefreshCw, Heart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { 
@@ -37,6 +38,7 @@ const ReconnectRecommendation = ({
   suggestedIcebreaker,
   className
 }: ReconnectRecommendationProps) => {
+  const navigate = useNavigate();
   const [expanded, setExpanded] = useState(false);
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
@@ -54,6 +56,10 @@ const ReconnectRecommendation = ({
         setSent(false);
       }, 3000);
     }, 1000);
+  };
+
+  const handleViewDetails = () => {
+    navigate(`/profile/${id}`);
   };
 
   const handleRegenerateIcebreaker = () => {
@@ -197,7 +203,7 @@ const ReconnectRecommendation = ({
         <Button 
           variant={expanded ? "default" : "ghost"} 
           size="sm" 
-          onClick={() => setExpanded(!expanded)}
+          onClick={expanded ? () => setExpanded(false) : handleViewDetails}
           className={cn("text-sm", expanded && "bg-ohhey-blue hover:bg-ohhey-blue/90")}
         >
           {expanded ? 'Close' : 'View Details'}
