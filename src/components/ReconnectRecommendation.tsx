@@ -92,85 +92,80 @@ const ReconnectRecommendation = ({
   return (
     <Card 
       className={cn(
-        'overflow-hidden transition-all duration-300',
-        expanded ? 'shadow-elevated' : 'hover:shadow-subtle',
+        'overflow-hidden transition-all duration-300 h-[206px]',
+        expanded ? 'h-auto shadow-elevated' : 'hover:shadow-subtle',
         className
       )}
     >
-      <CardHeader className="p-0">
-        <div className="relative h-32 bg-gradient-to-r from-ohhey-blue/10 to-ohhey-light">
-          <div 
-            className="absolute inset-0 bg-cover bg-center opacity-20" 
-            style={{ backgroundImage: `url(${imageUrl})` }}
-          />
-          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-white/80 to-transparent h-1/2" />
-          <div className="absolute left-6 -bottom-6 w-16 h-16 rounded-full border-4 border-white bg-white overflow-hidden shadow-subtle">
-            {imageUrl ? (
-              <img 
-                src={imageUrl} 
-                alt={name} 
-                className="w-full h-full object-cover"
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  target.src = 'https://ui-avatars.com/api/?name=' + encodeURIComponent(name) + '&background=e8f5fe&color=3d9cf0&rounded=true';
-                }}
-              />
-            ) : (
-              <div className="w-full h-full flex items-center justify-center bg-ohhey-light text-ohhey-blue">
-                <User size={24} />
-              </div>
-            )}
-          </div>
-        </div>
-      </CardHeader>
-      <CardContent className="pt-10 pb-3">
-        <div className="flex flex-col">
-          <CardTitle className="text-lg font-semibold">{name}</CardTitle>
-          <span className="text-sm text-muted-foreground">@{username}</span>
-        </div>
-        <div className="flex items-center gap-1 mt-1 text-sm text-muted-foreground">
-          <Clock size={14} />
-          <span>Last contact: {lastContactDate}</span>
+      <CardContent className="p-4 flex gap-4">
+        <div className="flex-shrink-0 w-12 h-12 rounded-full overflow-hidden border-2 border-white shadow-subtle">
+          {imageUrl ? (
+            <img 
+              src={imageUrl} 
+              alt={name} 
+              className="w-full h-full object-cover"
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.src = 'https://ui-avatars.com/api/?name=' + encodeURIComponent(name) + '&background=e8f5fe&color=3d9cf0&rounded=true';
+              }}
+            />
+          ) : (
+            <div className="w-full h-full flex items-center justify-center bg-ohhey-light text-ohhey-blue">
+              <User size={18} />
+            </div>
+          )}
         </div>
         
-        <div className="mt-3">
-          <Badge variant="outline" className={cn("font-normal flex items-center gap-1.5", bgColor, textColor)}>
-            <RecommendationIcon size={12} />
+        <div className="flex-1 overflow-hidden">
+          <div className="flex flex-col">
+            <CardTitle className="text-lg font-semibold">{name}</CardTitle>
+            <span className="text-sm text-muted-foreground">@{username}</span>
+          </div>
+          
+          <div className="flex items-center gap-1 mt-1 text-xs text-muted-foreground">
+            <Clock size={12} />
+            <span>Last contact: {lastContactDate}</span>
+          </div>
+          
+          <Badge variant="outline" className={cn("mt-2 font-normal text-xs flex items-center gap-1.5 w-fit", bgColor, textColor)}>
+            <RecommendationIcon size={10} />
             <span>Reconnection suggestion</span>
           </Badge>
-          <p className="mt-1.5 text-sm">{recommendationReason}</p>
+          
+          <p className="mt-1.5 text-sm line-clamp-2">{recommendationReason}</p>
         </div>
-
-        {expanded && (
-          <div className="mt-4 animate-slide-up">
-            <div className="flex items-center justify-between">
-              <Badge variant="outline" className="bg-primary/10 text-primary font-normal flex items-center gap-1">
-                <Zap size={12} />
-                <span>AI Icebreaker</span>
-              </Badge>
-              <Button 
-                variant="ghost" 
-                size="icon" 
-                className="h-6 w-6" 
-                onClick={handleRegenerateIcebreaker}
-                disabled={regenerating}
-              >
-                <RefreshCw size={14} className={regenerating ? "animate-spin" : ""} />
-              </Button>
-            </div>
-            <div className="mt-2 p-3 bg-muted/50 rounded-lg text-sm">
-              <Textarea
-                value={icebreaker}
-                onChange={(e) => setIcebreaker(e.target.value)}
-                className="min-h-[80px] resize-none bg-transparent border-none focus-visible:ring-0 focus-visible:ring-offset-0 p-0"
-                placeholder="Your icebreaker message..."
-              />
-            </div>
-          </div>
-        )}
       </CardContent>
+      
+      {expanded && (
+        <div className="px-4 pt-0 pb-2 animate-slide-up">
+          <div className="flex items-center justify-between">
+            <Badge variant="outline" className="bg-primary/10 text-primary font-normal flex items-center gap-1 text-xs">
+              <Zap size={10} />
+              <span>AI Icebreaker</span>
+            </Badge>
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              className="h-6 w-6" 
+              onClick={handleRegenerateIcebreaker}
+              disabled={regenerating}
+            >
+              <RefreshCw size={14} className={regenerating ? "animate-spin" : ""} />
+            </Button>
+          </div>
+          <div className="mt-2 p-3 bg-muted/50 rounded-lg text-sm">
+            <Textarea
+              value={icebreaker}
+              onChange={(e) => setIcebreaker(e.target.value)}
+              className="min-h-[80px] resize-none bg-transparent border-none focus-visible:ring-0 focus-visible:ring-offset-0 p-0"
+              placeholder="Your icebreaker message..."
+            />
+          </div>
+        </div>
+      )}
+      
       <CardFooter className={cn(
-        "flex gap-2",
+        "flex gap-2 p-4 pt-0",
         expanded ? "justify-between" : "justify-end"
       )}>
         {expanded && (
