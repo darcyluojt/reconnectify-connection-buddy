@@ -73,7 +73,7 @@ const Connections = () => {
 
   return (
     <div className="container max-w-5xl py-8 bg-white">
-      <div className="w-full h-[450px] overflow-hidden">
+      <div className="w-full h-[410px] overflow-hidden">
         <img src="/public/Instagram.jpg" alt="Instagram" className="w-full object-cover object-top" />
       </div>      
       <div className="flex flex-col gap-6 mx-2">
