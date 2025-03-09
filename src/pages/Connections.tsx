@@ -72,15 +72,19 @@ const Connections = () => {
   };
 
   return (
-    <div className="container max-w-5xl py-8">
-      <div className="flex flex-col gap-6">
+    <div className="container max-w-5xl py-8 bg-white">
+      <div className="w-full h-[450px] overflow-hidden">
+        <img src="/public/Instagram.jpg" alt="Instagram" className="w-full object-cover object-top" />
+      </div>      
+      <div className="flex flex-col gap-6 mx-2">
         <div className="flex flex-wrap items-center justify-between gap-4">
-          <div>
-            <h1 className="text-3xl font-bold tracking-tight">Reconnect Today</h1>
+          <div className="flex items-center">
+            <h1 className="text-3xl font-bold tracking-tight">Reconnect with</h1>
+            <img src="/public/logo.png" alt="Connections" className="w-32 ml-2" />
+          </div>
             <p className="text-muted-foreground mt-1">
               We've found 3 people you might want to catch up with
             </p>
-          </div>
           <div className="flex items-center gap-2">
             <span className="text-sm text-muted-foreground">
               Last updated: {formatRefreshTime(lastRefreshed)}
@@ -106,17 +110,11 @@ const Connections = () => {
             />
           ))}
         </div>
-        
-        <div className="text-center pt-4 pb-6">
-          <Badge className="bg-ohhey-blue/10 text-ohhey-blue border-none py-1 px-3">
-            Fresh suggestions tomorrow
-          </Badge>
-          <p className="text-muted-foreground text-sm mt-2">
-            We'll find new people for you to reconnect with each day
-          </p>
-        </div>
       </div>
+      <img src="/public/Instagram_bottom.jpg" alt="Instagram" className='w-full'/>
     </div>
+         
+  
   );
 };
 
